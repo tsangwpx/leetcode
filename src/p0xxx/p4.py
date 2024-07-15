@@ -15,4 +15,4 @@ class Solution:
         val1 = nums1[mid1]
         val2 = nums2[mid2]
 
-        print('num1', left1, size1, len(nums1), 'val', mid1, val1)
+        print("num1", left1, size1, len(nums1), "val", mid1, val1)

@@ -44,7 +44,7 @@ class Solution:
         counter = collections.Counter(words)
 
         unique_count = len(counter)
-        unique_words = [''] * unique_count
+        unique_words = [""] * unique_count
         multiples = [0] * unique_count
         records = [0] * unique_count
         table = collections.defaultdict(list)

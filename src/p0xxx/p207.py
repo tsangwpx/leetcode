@@ -66,7 +66,7 @@ class Solution:
         return True
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(Solution().canFinish(2, [[0, 0]]))
     print(Solution().canFinish(2, [[1, 0]]))
     print(Solution().canFinish(2, [[1, 0], [0, 1]]))

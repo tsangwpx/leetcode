@@ -23,6 +23,7 @@ class Solution:
                 for j in range(j, n):
                     if mappings[i][j] == target:
                         mappings[i][j] = value
+
         #
         # for i, row in enumerate(grid):
         #     print(f'row {i:2d}', ''.join('x' if s else '_' for s in row))

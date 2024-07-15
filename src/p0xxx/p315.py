@@ -80,8 +80,8 @@ class Solution:
 
             return partial
 
-        print('compact', sorted_compact_nums)
-        print('tree', tree)
+        print("compact", sorted_compact_nums)
+        print("tree", tree)
 
         res = []
         for i in range(len(nums))[::-1]:
@@ -89,8 +89,8 @@ class Solution:
             res.append(sum_to(idx - 1))
             update(idx, 1)
 
-            print('compact', sorted_compact_nums)
-            print('tree', tree)
+            print("compact", sorted_compact_nums)
+            print("tree", tree)
 
         res.reverse()
         return res

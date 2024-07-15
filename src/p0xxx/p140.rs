@@ -2,13 +2,7 @@ mod leetcode_prelude;
 
 use leetcode_prelude::*;
 
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
+fn main() {}
 
 struct Solution {}
 

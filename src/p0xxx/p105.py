@@ -13,7 +13,9 @@ class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         indexes = {s: i for i, s in enumerate(inorder)}
 
-        def make_node(pre_start: int, pre_stop: int, in_start: int, in_stop: int) -> Optional[TreeNode]:
+        def make_node(
+            pre_start: int, pre_stop: int, in_start: int, in_stop: int
+        ) -> Optional[TreeNode]:
             if pre_start == pre_stop:
                 return None
 
@@ -28,8 +30,18 @@ class Solution:
             right_pre_start = left_pre_start + left_size
             right_in_start = in_idx + 1
 
-            left = make_node(left_pre_start, left_pre_start + left_size, left_in_start, left_in_start + left_size)
-            right = make_node(right_pre_start, right_pre_start + right_size, right_in_start, right_in_start + right_size)
+            left = make_node(
+                left_pre_start,
+                left_pre_start + left_size,
+                left_in_start,
+                left_in_start + left_size,
+            )
+            right = make_node(
+                right_pre_start,
+                right_pre_start + right_size,
+                right_in_start,
+                right_in_start + right_size,
+            )
 
             node = TreeNode(val, left, right)
             return node
@@ -47,5 +59,5 @@ def main():
     print(Solution().isPossible([8, 5]))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

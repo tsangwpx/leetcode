@@ -20,7 +20,7 @@ class NumArray:
             self.bit[index] += dv
             index += index & (-index)
 
-        print('update', self.bit)
+        print("update", self.bit)
 
     def sumRange(self, left: int, right: int) -> int:
         def get_sum(idx: int) -> int:
@@ -31,7 +31,7 @@ class NumArray:
                 idx -= idx & -idx
             return res
 
-        print('sumRange', left, get_sum(left - 1), right, get_sum(right), self.bit)
+        print("sumRange", left, get_sum(left - 1), right, get_sum(right), self.bit)
         return get_sum(right) - get_sum(left - 1)
 
 

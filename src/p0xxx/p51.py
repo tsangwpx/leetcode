@@ -1,5 +1,5 @@
 import collections
-from typing import List, Tuple, Deque
+from typing import Deque, List, Tuple
 
 
 class Solution:
@@ -7,7 +7,7 @@ class Solution:
         # if n == 1:
         #     return [["Q"]]
 
-        nsq = n ** 2
+        nsq = n**2
         heads = [i // n * n for i in range(nsq)]
         # print('heads', n, heads)
         ok = []
@@ -61,14 +61,10 @@ class Solution:
 
         # print('ok', ok)
 
-        strings = [
-            '%sQ%s' % ('.' * i, '.' * (n - 1 - i)) for i in range(n)
-        ]
+        strings = ["%sQ%s" % ("." * i, "." * (n - 1 - i)) for i in range(n)]
         # print(n, 'strings', strings)
 
-        return [
-            [strings[s % n] for s in cfg] for cfg in ok
-        ]
+        return [[strings[s % n] for s in cfg] for cfg in ok]
 
 
 def run(nums):
@@ -93,18 +89,23 @@ def main():
         (
             4,
             [[".Q..", "...Q", "Q...", "..Q."], ["..Q.", "Q...", "...Q", ".Q.."]],
-
         ),
         (
             5,
-            [["Q....", "..Q..", "....Q", ".Q...", "...Q."], ["Q....", "...Q.", ".Q...", "....Q", "..Q.."], [".Q...", "...Q.", "Q....", "..Q..", "....Q"], [".Q...", "....Q", "..Q..", "Q....", "...Q."],
-             ["..Q..", "Q....", "...Q.", ".Q...", "....Q"], ["..Q..", "....Q", ".Q...", "...Q.", "Q...."], ["...Q.", "Q....", "..Q..", "....Q", ".Q..."], ["...Q.", ".Q...", "....Q", "..Q..", "Q...."],
-             ["....Q", ".Q...", "...Q.", "Q....", "..Q.."], ["....Q", "..Q..", "Q....", "...Q.", ".Q..."]],
+            [
+                ["Q....", "..Q..", "....Q", ".Q...", "...Q."],
+                ["Q....", "...Q.", ".Q...", "....Q", "..Q.."],
+                [".Q...", "...Q.", "Q....", "..Q..", "....Q"],
+                [".Q...", "....Q", "..Q..", "Q....", "...Q."],
+                ["..Q..", "Q....", "...Q.", ".Q...", "....Q"],
+                ["..Q..", "....Q", ".Q...", "...Q.", "Q...."],
+                ["...Q.", "Q....", "..Q..", "....Q", ".Q..."],
+                ["...Q.", ".Q...", "....Q", "..Q..", "Q...."],
+                ["....Q", ".Q...", "...Q.", "Q....", "..Q.."],
+                ["....Q", "..Q..", "Q....", "...Q.", ".Q..."],
+            ],
         ),
-        (
-            6,
-            []
-        ),
+        (6, []),
         (
             7,
             [],
@@ -121,8 +122,8 @@ def main():
 
     for n, expected in inputs:
         actual = run(n)
-        print('result', len(actual), actual)
+        print("result", len(actual), actual)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

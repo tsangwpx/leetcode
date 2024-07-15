@@ -44,7 +44,7 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if word1[i] == word2[j]:
-                    # we dont need to consider (i, j + 1) or (i + 1, j) in minization here 
+                    # we dont need to consider (i, j + 1) or (i + 1, j) in minization here
                     # because they are bounded below by dp[i][j]
                     dp[i + 1][j + 1] = dp[i][j]
                 else:

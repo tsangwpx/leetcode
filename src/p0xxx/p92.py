@@ -9,7 +9,9 @@ class ListNode:
 
 
 class Solution:
-    def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+    def reverseBetween(
+        self, head: Optional[ListNode], left: int, right: int
+    ) -> Optional[ListNode]:
         # the virtual head
         head = ListNode(0, head)
 
@@ -17,13 +19,13 @@ class Solution:
         for _ in range(left - 1):
             fixed = fixed.next
 
-        print('fixed', fixed.val)
+        print("fixed", fixed.val)
         last = fixed.next
         prev, curr = last, last.next
         last.next = None  # unlink last
 
         for _ in range(right - left):
-            print('point', curr.val, 'to', prev.val)
+            print("point", curr.val, "to", prev.val)
             tmp = curr.next
             curr.next = prev
             prev = curr

@@ -4,9 +4,16 @@ from typing import List, Tuple
 
 
 def mindist(
-    apart: List[int], astart: int, astop: int, asum: int,
-    bpart: List[int], bstart: int, bstop: int, bsum: int,
-    n: int, table: List[Tuple[int, int, int]],
+    apart: List[int],
+    astart: int,
+    astop: int,
+    asum: int,
+    bpart: List[int],
+    bstart: int,
+    bstop: int,
+    bsum: int,
+    n: int,
+    table: List[Tuple[int, int, int]],
     recursion: int,
 ) -> int:
     if recursion > 30:
@@ -46,11 +53,22 @@ def mindist(
         # print('ai', ai, apart[ai], asum1, 'bi', bi, apart[bi], bsum1)
 
         if ai + 1 < n and bi > 0:
-            minimum = min(minimum, mindist(
-                apart, ai + 1, n, asum1,
-                bpart, 0, bi, bsum1,
-                n, table, recursion + 1,
-            ))
+            minimum = min(
+                minimum,
+                mindist(
+                    apart,
+                    ai + 1,
+                    n,
+                    asum1,
+                    bpart,
+                    0,
+                    bi,
+                    bsum1,
+                    n,
+                    table,
+                    recursion + 1,
+                ),
+            )
             if minimum == 0:
                 return 0
 
@@ -267,15 +285,45 @@ def main():
         #   # ans: 1
         # ),
         (
-            [-10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000,
-             -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, -10000000, 10000000, -10000000, -10000000, -10000000, -10000000],
+            [
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+                -10000000,
+            ],
             # ans: 20000000
         ),
     ]
 
-    for nums, in inputs:
-        print('result', run(nums))
+    for (nums,) in inputs:
+        print("result", run(nums))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

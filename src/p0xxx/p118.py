@@ -1,5 +1,5 @@
 import operator
-from itertools import starmap, islice
+from itertools import islice, starmap
 from typing import List
 
 
@@ -13,6 +13,9 @@ class Solution:
             row = res[i]
             row[0] = row[-1] = 1
 
-            row[1:-1] = starmap(operator.add, zip(islice(last, 1, len(last)), islice(last, 0, len(last) - 1)))
+            row[1:-1] = starmap(
+                operator.add,
+                zip(islice(last, 1, len(last)), islice(last, 0, len(last) - 1)),
+            )
 
         return res

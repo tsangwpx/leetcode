@@ -43,5 +43,4 @@ class Solution:
             rev_head = node
             node = new_node
 
-
         return rev_head

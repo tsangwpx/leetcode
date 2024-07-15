@@ -25,11 +25,11 @@ class Solution:
             res, k = dfs(node.left, k)
             if res is not None:
                 return res, k
-            
+
             if k == 1:
                 # this node is the target
                 return node.val, 0
-            
+
             # otherwise, ask the right side with k decreased by one
             return dfs(node.right, k - 1)
 

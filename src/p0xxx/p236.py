@@ -10,10 +10,12 @@ class TreeNode:
 
 
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(
+        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+    ) -> "TreeNode":
         vals = (p.val, q.val)
 
-        def visit(node: Optional['TreeNode']) -> Optional['TreeNode']:
+        def visit(node: Optional["TreeNode"]) -> Optional["TreeNode"]:
             if node is None:
                 return None
 

@@ -24,9 +24,10 @@ class Node:
         self.random = random
 
 
+from heapq import heapify, heappop, heappush
+
 # Problem 2353
 from sortedcontainers import SortedSet
-from heapq import heapify, heappop, heappush
 
 
 class FoodRatings:

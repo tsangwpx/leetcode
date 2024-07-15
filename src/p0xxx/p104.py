@@ -16,4 +16,5 @@ class Solution:
             if node is None:
                 return 0
             return 1 + max(visit(node.left), visit(node.right))
+
         return visit(root)

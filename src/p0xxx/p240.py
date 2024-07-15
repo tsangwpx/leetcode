@@ -34,7 +34,9 @@ class Solution:
         return False
 
 
-if __name__ == '__main__':
-    print(Solution().scheduleCourse([[100, 200], [200, 1300], [1000, 1250], [2000, 3200]]))
+if __name__ == "__main__":
+    print(
+        Solution().scheduleCourse([[100, 200], [200, 1300], [1000, 1250], [2000, 3200]])
+    )
     print(Solution().scheduleCourse([[1, 2]]))
     print(Solution().scheduleCourse([[3, 2], [4, 3]]))

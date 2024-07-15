@@ -33,7 +33,7 @@ class Solution:
         return order
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(Solution().findOrder(2, [[0, 0]]))
     print(Solution().findOrder(2, [[1, 0]]))
     print(Solution().findOrder(2, [[1, 0], [0, 1]]))

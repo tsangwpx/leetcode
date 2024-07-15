@@ -12,8 +12,8 @@ class TreeNode:
 # Problem 437
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
-        from collections import Counter
         from bisect import bisect_left, bisect_right
+        from collections import Counter
         from heapq import merge
 
         def visit(node):
@@ -63,8 +63,8 @@ class Solution:
 
     def pathSum3(self, root: Optional[TreeNode], targetSum: int) -> int:
         # This is not working because too slow
-        from operator import eq
         from functools import partial
+        from operator import eq
 
         def visit(node, partial_sum, is_new):
             if node is None:

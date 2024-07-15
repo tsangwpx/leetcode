@@ -27,7 +27,7 @@ class Node:
 # Problem 1913
 class Solution:
     def maxProductDifference(self, nums: List[int]) -> int:
-        from heapq import heappop, heapify
+        from heapq import heapify, heappop
 
         neg_nums = [-s for s in nums]
 
@@ -37,7 +37,7 @@ class Solution:
         return heappop(nums) * heappop(nums) - heappop(neg_nums) * heappop(neg_nums)
 
     def maxProductDifference2(self, nums: List[int]) -> int:
-        from heapq import heappushpop, heapify
+        from heapq import heapify, heappushpop
 
         heap_min = [nums[0], nums[1]]
         heap_min.sort()

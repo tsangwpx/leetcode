@@ -27,7 +27,7 @@ class Node:
 # Problem 1768
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
-        from itertools import zip_longest, chain
+        from itertools import chain, zip_longest
 
         s = ""
 
@@ -43,6 +43,6 @@ class Solution:
         return s
 
     def mergeAlternately2(self, word1: str, word2: str) -> str:
-        from itertools import zip_longest, chain
+        from itertools import chain, zip_longest
 
         return "".join(chain.from_iterable(zip_longest(word1, word2, fillvalue="")))
