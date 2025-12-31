@@ -1,11 +1,5 @@
 use std::ops::Deref;
 
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 131
 impl Solution {
     pub fn partition(s: String) -> Vec<Vec<String>> {

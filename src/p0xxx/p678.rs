@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 678
 impl Solution {
     pub fn check_valid_string(s: String) -> bool {

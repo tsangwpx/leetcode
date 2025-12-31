@@ -1,11 +1,3 @@
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
@@ -20,13 +12,11 @@ impl ListNode {
     }
 }
 
-struct Solution {}
-
 // Problem 2353
 use std::cell::{Cell, RefCell};
 use std::collections::{
-    hash_map::Entry::{Occupied, Vacant},
     BinaryHeap, HashMap,
+    hash_map::Entry::{Occupied, Vacant},
 };
 use std::rc::Rc;
 

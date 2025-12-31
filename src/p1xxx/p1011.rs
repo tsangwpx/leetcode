@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 1011
 impl Solution {
     pub fn ship_within_days(weights: Vec<i32>, days: i32) -> i32 {

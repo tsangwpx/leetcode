@@ -12,8 +12,6 @@ fn main() {
     // println!("456789");
 }
 
-struct Solution {}
-
 // Problem 200
 impl Solution {
     #[inline(never)]

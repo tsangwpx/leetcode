@@ -1,15 +1,7 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-extern crate rand;
-
 // Problem 1206
+use rand::SeedableRng;
 use rand::distributions::{Bernoulli, Distribution};
 use rand::rngs::StdRng;
-use rand::SeedableRng;
 
 #[derive(Debug, Clone, Copy)]
 struct Node {

@@ -1,10 +1,4 @@
-// mod done;
-
 use std::ops::BitAnd;
-
-fn main() {
-    println!("Hello, world!");
-}
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
@@ -24,7 +18,6 @@ impl TreeNode {
     }
 }
 
-struct Solution {}
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
 // pub struct TreeNode {

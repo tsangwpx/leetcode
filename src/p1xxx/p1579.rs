@@ -1,11 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-extern crate rand;
-
 // Problem 1579
 impl Solution {
     pub fn max_num_edges_to_remove(n: i32, edges: Vec<Vec<i32>>) -> i32 {

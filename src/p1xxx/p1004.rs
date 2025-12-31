@@ -1,19 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
-
 // Problem 1004
 impl Solution {
     pub fn longest_ones(nums: Vec<i32>, k: i32) -> i32 {

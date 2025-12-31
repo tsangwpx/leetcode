@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 55
 impl Solution {
     pub fn can_jump(nums: Vec<i32>) -> bool {

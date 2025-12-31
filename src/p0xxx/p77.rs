@@ -1,19 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
-
 // Problem 77
 impl Solution {
     pub fn combine(n: i32, k: i32) -> Vec<Vec<i32>> {

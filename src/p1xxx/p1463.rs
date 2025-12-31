@@ -1,11 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-extern crate rand;
-
 // Problem 1463
 impl Solution {
     pub fn cherry_pickup(grid: Vec<Vec<i32>>) -> i32 {

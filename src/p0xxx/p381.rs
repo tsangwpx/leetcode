@@ -1,22 +1,7 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
-
 // Problem 381
-use rand::thread_rng;
+extern crate rand;
 use rand::Rng;
+use rand::thread_rng;
 use std::collections::HashMap;
 use std::collections::HashSet;
 

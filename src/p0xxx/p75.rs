@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 75
 impl Solution {
     pub fn sort_colors(nums: &mut Vec<i32>) {

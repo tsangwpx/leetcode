@@ -31,18 +31,19 @@ Explanation: The trivial word chain ["abcd"] is one of the longest word chains.
 ["abcd","dbqca"] is not a valid word chain because the ordering of the letters is changed.
  */
 
-
 use std::cmp::min;
 use std::process::id;
-
-struct Solution {}
 
 impl Solution {
     fn is_predecessor(word1: &[u8], word2: &[u8]) -> bool {
         assert!(word1.len() < word2.len());
-        match word1.iter().enumerate().position(|(idx, &ch)| ch != word2[idx]) {
+        match word1
+            .iter()
+            .enumerate()
+            .position(|(idx, &ch)| ch != word2[idx])
+        {
             Some(pos) => word1[pos..].eq(&word2[pos + 1..]),
-            None => true
+            None => true,
         }
     }
 
@@ -98,7 +99,10 @@ impl Solution {
                     let yes = Self::is_predecessor(word1, word2);
 
                     if yes {
-                        word1_chain_max = max(unsafe { *chain_lengths.get_unchecked(idx2) } + 1, word1_chain_max);
+                        word1_chain_max = max(
+                            unsafe { *chain_lengths.get_unchecked(idx2) } + 1,
+                            word1_chain_max,
+                        );
                     }
 
                     // println!("Compare {:?} {:?}: {}", from_utf8(word1), from_utf8(word2), yes);
@@ -114,7 +118,6 @@ impl Solution {
 
         global_chain_max as i32
     }
-
 
     pub fn longest_str_chain2(words: Vec<String>) -> i32 {
         use std::cmp::max;
@@ -136,7 +139,6 @@ impl Solution {
         let mut chain_lengths = vec![1; words.len()];
         let mut global_chain_max = 1;
 
-
         for word_len in (1..words_by_len.len()).rev() {
             let group2 = &words_by_len[word_len];
             let group1 = &words_by_len[word_len - 1];
@@ -150,7 +152,12 @@ impl Solution {
                         word1_chain_max = max(chain_lengths[idx2] + 1, word1_chain_max);
                     }
 
-                    println!("Compare {:?} {:?}: {}", from_utf8(word1), from_utf8(word2), yes);
+                    println!(
+                        "Compare {:?} {:?}: {}",
+                        from_utf8(word1),
+                        from_utf8(word2),
+                        yes
+                    );
                 }
 
                 chain_lengths[idx1] = word1_chain_max;

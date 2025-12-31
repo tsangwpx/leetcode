@@ -3,7 +3,8 @@ impl Solution {
         assert_eq!(nums1.len(), nums2.len());
         assert!(1 <= nums1.len());
 
-        let mut nums3: Vec<_> = nums1.iter()
+        let mut nums3: Vec<_> = nums1
+            .iter()
             .zip(nums2.iter())
             .map(|(&a, &b)| (a - b).abs())
             .collect();
@@ -20,7 +21,10 @@ impl Solution {
         while i < nums3.len() {
             let number = nums3[i];
             assert!(largest >= number);
-            println!("i {} largest={} x{}, number={}", i, largest, multiple, number);
+            println!(
+                "i {} largest={} x{}, number={}",
+                i, largest, multiple, number
+            );
             let dk = (largest - number) * multiple;
 
             if k < dk {
@@ -61,13 +65,7 @@ impl Solution {
     }
 }
 
-struct Solution {}
-
 fn main() {
-    Solution::min_sum_square_diff(
-        vec![1, 2, 3, 4],
-        vec![2, 10, 20, 19],
-        0, 0,
-    );
+    Solution::min_sum_square_diff(vec![1, 2, 3, 4], vec![2, 10, 20, 19], 0, 0);
     println!("Hello World");
 }

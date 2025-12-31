@@ -1,19 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
-
 // Problem 1203
 impl Solution {
     pub fn sort_items(n: i32, m: i32, group: Vec<i32>, before_items: Vec<Vec<i32>>) -> Vec<i32> {
@@ -104,10 +88,6 @@ impl Solution {
             }
         }
 
-        if res.len() == n {
-            res
-        } else {
-            vec![]
-        }
+        if res.len() == n { res } else { vec![] }
     }
 }

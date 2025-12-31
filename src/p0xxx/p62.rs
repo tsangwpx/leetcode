@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 62
 impl Solution {
     pub fn unique_paths(m: i32, n: i32) -> i32 {

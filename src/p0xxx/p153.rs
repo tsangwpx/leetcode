@@ -1,9 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 153
 impl Solution {
     pub fn find_min(nums: Vec<i32>) -> i32 {

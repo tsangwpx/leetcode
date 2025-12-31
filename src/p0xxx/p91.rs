@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 91
 impl Solution {
     pub fn num_decodings(s: String) -> i32 {

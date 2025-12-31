@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 3043
 impl Solution {
     pub fn longest_common_prefix(arr1: Vec<i32>, arr2: Vec<i32>) -> i32 {

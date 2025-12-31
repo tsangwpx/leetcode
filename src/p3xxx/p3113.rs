@@ -1,14 +1,4 @@
-mod leetcode_prelude;
-
 use std::ops::Bound;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
 
 // Problem 3113
 impl Solution {

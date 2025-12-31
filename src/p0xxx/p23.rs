@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {

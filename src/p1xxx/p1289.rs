@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 1289
 impl Solution {
     pub fn min_falling_path_sum(grid: Vec<Vec<i32>>) -> i32 {

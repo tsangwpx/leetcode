@@ -1,19 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
-
 // Problem 502
 impl Solution {
     pub fn find_maximized_capital(k: i32, w: i32, profits: Vec<i32>, capital: Vec<i32>) -> i32 {

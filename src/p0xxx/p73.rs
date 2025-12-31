@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 73
 impl Solution {
     pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {

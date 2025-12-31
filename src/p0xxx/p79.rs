@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 79
 impl Solution {
     pub fn exist(board: Vec<Vec<char>>, word: String) -> bool {

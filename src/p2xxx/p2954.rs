@@ -1,9 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 2954
 impl Solution {
     const MOD: i64 = 10i64.pow(9) + 7;

@@ -1,9 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 322
 impl Solution {
     pub fn coin_change(mut coins: Vec<i32>, amount: i32) -> i32 {

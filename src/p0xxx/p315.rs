@@ -115,25 +115,24 @@ impl Solution {
             }
         }
 
-        mergesort(&nums, &mut counts, &mut indices, &mut indices2, 0, nums.len());
+        mergesort(
+            &nums,
+            &mut counts,
+            &mut indices,
+            &mut indices2,
+            0,
+            nums.len(),
+        );
 
         counts
     }
 }
 
-struct Solution {}
-
 fn main() {
-    Solution::count_smaller(
-        vec![5, 2, 6, 1]
-    );
+    Solution::count_smaller(vec![5, 2, 6, 1]);
 
-    Solution::count_smaller(
-        vec![-1]
-    );
+    Solution::count_smaller(vec![-1]);
 
-    Solution::count_smaller(
-        vec![-1, -1]
-    );
+    Solution::count_smaller(vec![-1, -1]);
     println!("Hello World");
 }

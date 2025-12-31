@@ -1,15 +1,5 @@
-mod leetcode_prelude;
-
 use core::num;
 use std::process::id;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
 
 // Problem 713
 impl Solution {

@@ -1,80 +1,76 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 2092
 impl Solution {
-    pub fn find_all_people(n: i32, meetings: Vec<Vec<i32>>, first_person: i32) -> Vec<i32> {
-        use std::collections::HashMap;
-        use std::collections::HashSet;
+    pub fn find_all_people(n: i32, mut meetings: Vec<Vec<i32>>, first_person: i32) -> Vec<i32> {
+        // union-find + reset between time iteration
 
-        let mut meetings = meetings;
         meetings.sort_unstable_by_key(|s| s[2]);
         let meetings = meetings;
 
-        let mut known = vec![false; n as usize];
-        known[0] = true;
-        known[first_person as usize] = true;
+        let mut groups = (0..n).collect::<Vec<Item>>();
 
-        let mut new_friends = vec![];
-        let mut table = HashMap::<i32, Vec<i32>>::new();
+        type Item = i32;
+        let n = n as usize;
 
-        let mut offset = 0;
-        while offset < meetings.len() {
-            let time = meetings[offset][2];
-            let count = meetings
-                .iter()
-                .skip(offset)
-                .filter(|s| s[2] == time)
-                .count();
+        #[inline]
+        fn find(groups: &mut Vec<Item>, index: i32) -> i32 {
+            let mut parent = groups[index as usize];
 
-            table.clear();
+            if parent != groups[parent as usize] {
+                parent = find(groups, parent);
+                groups[index as usize] = parent;
+            }
 
-            for meeting in meetings[offset..offset + count].iter() {
-                let b = meeting[1];
-                let a = meeting[0];
+            parent
+        }
 
-                match (known[a as usize], known[b as usize]) {
-                    (true, true) => {}
-                    (true, false) => {
-                        known[b as usize] = true;
-                        new_friends.push(b);
-                    }
-                    (false, true) => {
-                        known[a as usize] = true;
-                        new_friends.push(a);
-                    }
-                    (false, false) => {
-                        table.entry(a).or_default().push(b);
-                        table.entry(b).or_default().push(a);
+        #[inline]
+        fn union(groups: &mut Vec<Item>, i: i32, j: i32) -> i32 {
+            let i = find(groups, i);
+            let j = find(groups, j);
+            let mn = i.min(j);
+            let mx = i.max(j);
+            groups[mx as usize] = mn;
+            mn
+        }
+
+        union(&mut groups, 0, first_person);
+
+        let mut last_time = -1;
+        let mut last_people = Vec::with_capacity(groups.len());
+
+        for row in meetings.iter() {
+            let &[x, y, time] = row.as_slice() else {
+                panic!("bad format")
+            };
+
+            let time_changed = time != last_time;
+
+            if time_changed {
+                for person in last_people.drain(..) {
+                    if find(&mut groups, person) != 0 {
+                        // reset their group if they dont know the secret!
+                        groups[person as usize] = person;
                     }
                 }
             }
 
-            offset += count;
+            last_time = time;
 
-            while let Some(person) = new_friends.pop() {
-                if let Some(friends) = table.remove(&person) {
-                    for friend in friends {
-                        if !known[friend as usize] {
-                            known[friend as usize] = true;
-                            new_friends.push(friend);
-                        }
-                    }
-                }
+            let res = union(&mut groups, x, y);
+
+            if res != 0 {
+                // skip adding them if they know the secret. Optimization
+                last_people.push(x);
+                last_people.push(y);
             }
         }
 
-        known
-            .into_iter()
-            .enumerate()
-            .filter_map(|(idx, secret)| if secret { Some(idx as i32) } else { None })
+        (0..n as i32)
+            .filter_map(|i| {
+                let root = find(&mut groups, i);
+
+                if root == 0 { Some(i) } else { None }
+            })
             .collect::<Vec<_>>()
     }
 }

@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 442
 impl Solution {
     pub fn find_duplicates(nums: Vec<i32>) -> Vec<i32> {

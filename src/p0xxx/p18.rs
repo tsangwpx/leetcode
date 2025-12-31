@@ -1,5 +1,84 @@
+// Problem 18
 impl Solution {
     pub fn four_sum(mut nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
+        if nums.len() < 4 {
+            return vec![];
+        }
+
+        nums.sort_unstable();
+
+        let mut res = Vec::new();
+
+        fn recurse(
+            nums: &[i32],
+            target: i32,
+            res: &mut Vec<Vec<i32>>,
+            start: usize,
+            ksum: usize,
+            prefix: &mut Vec<i32>,
+        ) {
+            // println!("{}: target={} prefix={:?}", ksum, target, prefix);
+            if ksum >= 3 {
+                let mut idx = start;
+                while idx < nums.len() {
+                    let num = nums[idx];
+
+                    if let Some(target2) = target.checked_sub(num) {
+                        prefix.push(num);
+
+                        recurse(nums, target2, res, idx + 1, ksum - 1, prefix);
+
+                        prefix.pop();
+                    };
+
+                    idx += 1;
+
+                    while idx < nums.len() && nums[idx] == num {
+                        idx += 1;
+                    }
+                }
+            } else {
+                let mut idx1 = start;
+                let mut idx2 = nums.len() - 1;
+
+                while idx1 < idx2 {
+                    let num1 = nums[idx1];
+                    let num2 = nums[idx2];
+                    let delta = target as i64 - num1 as i64 - num2 as i64;
+
+                    if delta == 0 {
+                        let mut row = Vec::with_capacity(prefix.len() + 2);
+                        row.clone_from(prefix);
+                        row.push(num1);
+                        row.push(num2);
+                        res.push(row);
+                    }
+
+                    if delta >= 0 {
+                        idx1 += 1;
+
+                        while idx1 < idx2 && nums[idx1] == num1 {
+                            idx1 += 1;
+                        }
+                    }
+
+                    if delta <= 0 {
+                        idx2 -= 1;
+
+                        while idx1 < idx2 && nums[idx2] == num2 {
+                            idx2 -= 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        recurse(&nums[..], target, &mut res, 0, 4, &mut vec![]);
+
+        res
+    }
+
+    pub fn four_sum3(mut nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
         #[inline(always)]
         fn make_tuple(prefix: &Vec<i32>, a: i32, b: i32) -> Vec<i32> {
             // Ok. this is Vec indeed.
@@ -11,7 +90,13 @@ impl Solution {
         }
 
         #[inline(always)]
-        fn recurse(nums: &[i32], k: usize, target: i64, prefix: &mut Vec<i32>, results: &mut Vec<Vec<i32>>) {
+        fn recurse(
+            nums: &[i32],
+            k: usize,
+            target: i64,
+            prefix: &mut Vec<i32>,
+            results: &mut Vec<Vec<i32>>,
+        ) {
             assert!(k >= 2);
             assert!(k <= nums.len());
 
@@ -79,7 +164,6 @@ impl Solution {
         results
     }
 
-
     pub fn four_sum2(mut nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
         use std::cmp::Ordering;
         use std::collections::{BTreeMap, HashMap, HashSet};
@@ -109,7 +193,8 @@ impl Solution {
                     }
                 }
 
-                table.entry(sum)
+                table
+                    .entry(sum)
                     .or_insert_with(|| BTreeMap::new())
                     .entry(j as u8)
                     .or_insert_with(|| PairSet::new())
@@ -119,21 +204,9 @@ impl Solution {
 
         // println!("{:?}", result);
 
-        result.into_iter()
+        result
+            .into_iter()
             .map(|(a, b, c, d)| vec![a, b, c, d])
             .collect::<Vec<Vec<i32>>>()
     }
-}
-
-struct Solution {}
-
-/**
- * Your WordFilter object will be instantiated and called as such:
- * let obj = WordFilter::new(words);
- * let ret_1: i32 = obj.f(prefix, suffix);
- */
-
-fn main() {
-    let wf = Solution::four_sum(vec![1, 2, 3, 4, 5, 6, 7], 10);
-    // wf.f("a".to_string(), "e".to_string());
 }

@@ -1,9 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 1143
 impl Solution {
     pub fn longest_common_subsequence(mut text1: String, mut text2: String) -> i32 {
@@ -15,7 +9,6 @@ impl Solution {
         let text2 = text2;
         assert!(text1.len() >= 1 && text1.len() <= 1000);
         assert!(text2.len() >= 1 && text2.len() <= 1000);
-
 
         let mut dp0 = [0u16; 1024];
         let mut dp1 = dp0.clone();

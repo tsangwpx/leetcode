@@ -1,13 +1,3 @@
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
 // Problem 31
 impl Solution {
     pub fn next_permutation(nums: &mut Vec<i32>) {

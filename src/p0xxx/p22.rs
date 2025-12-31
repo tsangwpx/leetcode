@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 impl Solution {
     // Problem 22
     pub fn generate_parenthesis(n: i32) -> Vec<String> {

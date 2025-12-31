@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 2709
 impl Solution {
     pub fn can_traverse_all_pairs(nums: Vec<i32>) -> bool {

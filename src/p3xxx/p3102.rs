@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 3102
 impl Solution {
     pub fn minimum_distance(points: Vec<Vec<i32>>) -> i32 {

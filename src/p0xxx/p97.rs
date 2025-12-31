@@ -69,7 +69,6 @@ impl Solution {
         loop {
             println!("{} {} {} {:?}", i, j, k, stack);
 
-
             if k < s3.len() {
                 let cmp1 = i < s1.len() && s1[i] == s3[k];
                 let cmp2 = j < s2.len() && s2[j] == s3[k];
@@ -78,9 +77,13 @@ impl Solution {
                     let terminator = s3[k];
                     let mut c = 1;
 
-                    while k + c < s3.len() && s3[k + c] != terminator
-                        && i + c < s1.len() && s1[i + c] == s3[k + c]
-                        && j + c < s2.len() && s2[j + c] == s3[k + c] {
+                    while k + c < s3.len()
+                        && s3[k + c] != terminator
+                        && i + c < s1.len()
+                        && s1[i + c] == s3[k + c]
+                        && j + c < s2.len()
+                        && s2[j + c] == s3[k + c]
+                    {
                         c += 1;
                     }
 
@@ -114,8 +117,6 @@ impl Solution {
         }
     }
 }
-
-struct Solution {}
 
 fn main() {
     println!("Hello World");

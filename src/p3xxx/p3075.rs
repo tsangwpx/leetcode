@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 3075
 impl Solution {
     pub fn maximum_happiness_sum(happiness: Vec<i32>, k: i32) -> i64 {

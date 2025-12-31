@@ -1,9 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 139
 impl Solution {
     pub fn word_break(s: String, word_dict: Vec<String>) -> bool {

@@ -1,9 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 124
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]

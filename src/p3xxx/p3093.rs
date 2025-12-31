@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 3093
 impl Solution {
     pub fn string_indices(words_container: Vec<String>, words_query: Vec<String>) -> Vec<i32> {

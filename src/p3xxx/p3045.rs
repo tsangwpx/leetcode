@@ -1,11 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-extern crate rand;
-
 // Problem 3045
 impl Solution {
     pub fn count_prefix_suffix_pairs(words: Vec<String>) -> i64 {

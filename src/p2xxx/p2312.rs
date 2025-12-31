@@ -12,9 +12,7 @@ impl Solution {
         let mut dp = [0i64; 256 * 256];
 
         macro_rules! loc {
-            ($h:expr, $w:expr) => {
-                {($h) * 256 + ($w)}
-            };
+            ($h:expr, $w:expr) => {{ ($h) * 256 + ($w) }};
         }
 
         macro_rules! dp {
@@ -23,10 +21,11 @@ impl Solution {
             };
         }
 
-
         for entry in prices {
             if entry.len() < 3 {
-                unsafe { std::hint::unreachable_unchecked(); }
+                unsafe {
+                    std::hint::unreachable_unchecked();
+                }
             }
             dp!(entry[0] as usize, entry[1] as usize) = entry[2] as i64;
         }
@@ -52,8 +51,6 @@ impl Solution {
         dp!(m, n)
     }
 }
-
-struct Solution {}
 
 fn main() {
     use std::hint::black_box;

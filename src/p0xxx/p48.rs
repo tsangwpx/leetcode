@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 48
 impl Solution {
     pub fn rotate(matrix: &mut Vec<Vec<i32>>) {

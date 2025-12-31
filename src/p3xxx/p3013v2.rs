@@ -1,30 +1,12 @@
-mod leetcode_prelude;
-
-use std::iter::FromIterator;
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
-
 // Problem 3013
 impl Solution {
     pub fn minimum_cost(nums: Vec<i32>, k: i32, dist: i32) -> i64 {
         use std::cmp::Reverse;
-        use std::collections::btree_map::Entry as BEntry;
-        use std::collections::hash_map::Entry;
         use std::collections::BTreeMap;
         use std::collections::BinaryHeap;
         use std::collections::HashMap;
+        use std::collections::btree_map::Entry as BEntry;
+        use std::collections::hash_map::Entry;
 
         let k = k as usize;
         let dist = dist as usize;

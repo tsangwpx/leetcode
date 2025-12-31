@@ -1,24 +1,8 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
-
 // Problem 332
 impl Solution {
     pub fn find_itinerary(mut tickets: Vec<Vec<String>>) -> Vec<String> {
-        use std::collections::hash_map::Entry;
         use std::collections::HashMap;
+        use std::collections::hash_map::Entry;
 
         let len = tickets.len();
         let mut table = HashMap::new();

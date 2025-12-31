@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 2906
 impl Solution {
     pub fn construct_product_matrix(mut grid: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
@@ -32,11 +22,7 @@ impl Solution {
         for i in (0..n).rev() {
             for j in (0..m).rev() {
                 let prefix = if j == 0 {
-                    if i == 0 {
-                        1
-                    } else {
-                        res[i - 1][m - 1]
-                    }
+                    if i == 0 { 1 } else { res[i - 1][m - 1] }
                 } else {
                     res[i][j - 1]
                 };

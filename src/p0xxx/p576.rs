@@ -119,8 +119,6 @@ impl Solution {
     }
 }
 
-struct Solution {}
-
 fn main() {
     Solution::find_paths(2, 2, 2, 0, 0);
     Solution::find_paths(1, 3, 3, 0, 1);

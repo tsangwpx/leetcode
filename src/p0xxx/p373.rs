@@ -1,19 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
-
 // Problem 373
 impl Solution {
     pub fn k_smallest_pairs(mut nums1: Vec<i32>, mut nums2: Vec<i32>, k: i32) -> Vec<Vec<i32>> {
@@ -45,7 +29,7 @@ impl Solution {
         while res.len() < k && !heap.is_empty() {
             let mut top = heap.peek_mut().unwrap();
 
-            let sum = top.0 .0;
+            let sum = top.0.0;
             let right_idx = top.1;
             let right = nums2[right_idx];
             let left = sum - right;

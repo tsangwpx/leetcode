@@ -1,12 +1,4 @@
-// mod done;
-
 use core::num;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
 
 // Problem 2963
 impl Solution {

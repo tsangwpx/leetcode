@@ -1,5 +1,3 @@
-struct Solution {}
-
 #[derive(Copy, Clone, Debug)]
 enum Direction {
     North,
@@ -7,7 +5,6 @@ enum Direction {
     South,
     West,
 }
-
 
 #[derive(Debug)]
 struct Walker {
@@ -73,16 +70,23 @@ impl Walker {
         }
 
         match direction {
-            Direction::North => { self.pos_y -= 1; }
-            Direction::East => { self.pos_x += 1; }
-            Direction::South => { self.pos_y += 1; }
-            Direction::West => { self.pos_x -= 1; }
+            Direction::North => {
+                self.pos_y -= 1;
+            }
+            Direction::East => {
+                self.pos_x += 1;
+            }
+            Direction::South => {
+                self.pos_y += 1;
+            }
+            Direction::West => {
+                self.pos_x -= 1;
+            }
         }
 
         Ok(())
     }
 }
-
 
 impl Solution {
     pub fn spiral_order(matrix: Vec<Vec<i32>>) -> Vec<i32> {
@@ -97,7 +101,7 @@ impl Solution {
         let mut right = n - 1;
         let mut bottom = m - 1;
         let mut left = 0;
-        
+
         order.push(unsafe { *matrix.get_unchecked(j).get_unchecked(i) });
 
         while top <= bottom && left <= right {
@@ -111,7 +115,6 @@ impl Solution {
                 break;
             }
             top += 1;
-
 
             // Southward
             // println!("south {} {}: {} {} {} {}", i, j, top, right, bottom, left);

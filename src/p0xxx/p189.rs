@@ -1,13 +1,3 @@
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
 // Problem 189
 impl Solution {
     pub fn rotate3(nums: &mut Vec<i32>, k: i32) {

@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 76
 impl Solution {
     pub fn min_window(s: String, t: String) -> String {

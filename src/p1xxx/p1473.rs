@@ -36,7 +36,12 @@ impl Solution {
 
         impl Fee {
             fn new(n: usize) -> Self {
-                Self { colour: 0, fee: i32::MAX, alt: i32::MAX, records: vec![i32::MAX; n] }
+                Self {
+                    colour: 0,
+                    fee: i32::MAX,
+                    alt: i32::MAX,
+                    records: vec![i32::MAX; n],
+                }
             }
 
             #[inline(always)]
@@ -139,7 +144,6 @@ impl Solution {
         // dp[colour][neighbour] = cost
         // dp0 is the prev house; dp1 is the working house
 
-
         let mut dp0 = vec![vec![i32::MAX; target + 1]; n];
         let mut dp1 = vec![vec![i32::MAX; target + 1]; n];
 
@@ -160,8 +164,7 @@ impl Solution {
                 let colour = j as i32 + 1;
 
                 if fixed_colour == 0 || colour == fixed_colour {
-                    dp1[j][0] = i32::MAX;   // the house must be coloured; neighbours >= 1
-
+                    dp1[j][0] = i32::MAX; // the house must be coloured; neighbours >= 1
 
                     for k in 1..target + 1 {
                         // Iterate the previous house to find the minimum cost which gives the same neighbour
@@ -169,8 +172,8 @@ impl Solution {
 
                         for prev in 0..n {
                             fee = fee.min(match j == prev {
-                                true => dp0[prev][k],   // same colour
-                                false => dp0[prev][k - 1],// different colour
+                                true => dp0[prev][k],      // same colour
+                                false => dp0[prev][k - 1], // different colour
                             });
                         }
 
@@ -218,7 +221,6 @@ impl Solution {
 
         println!("Init: {:?}", dp[0]);
 
-
         for (i, &fixed_colour) in houses.iter().enumerate() {
             for j in 0..n {
                 let colour = j as i32 + 1;
@@ -254,23 +256,39 @@ impl Solution {
     }
 }
 
-struct Solution {}
-
 fn main() {
     Solution::min_cost(
         vec![0, 0, 0, 0, 0],
-        vec![vec![1, 10], vec![10, 1], vec![10, 1], vec![1, 10], vec![5, 1]],
-        5, 2, 3,
+        vec![
+            vec![1, 10],
+            vec![10, 1],
+            vec![10, 1],
+            vec![1, 10],
+            vec![5, 1],
+        ],
+        5,
+        2,
+        3,
     );
     Solution::min_cost(
         vec![0, 2, 1, 2, 0],
-        vec![vec![1, 10], vec![10, 1], vec![10, 1], vec![1, 10], vec![5, 1]],
-        5, 2, 3,
+        vec![
+            vec![1, 10],
+            vec![10, 1],
+            vec![10, 1],
+            vec![1, 10],
+            vec![5, 1],
+        ],
+        5,
+        2,
+        3,
     );
     Solution::min_cost(
         vec![3, 1, 2, 3],
         vec![vec![1, 1, 1], vec![1, 1, 1], vec![1, 1, 1], vec![1, 1, 1]],
-        4, 3, 3,
+        4,
+        3,
+        3,
     );
     println!("Hello World");
 }

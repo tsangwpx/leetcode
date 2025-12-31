@@ -1,14 +1,4 @@
-mod leetcode_prelude;
-
 use std::intrinsics::fabsf32;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
 
 // Problem 472
 impl Solution {

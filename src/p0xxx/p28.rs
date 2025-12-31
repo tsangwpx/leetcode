@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 28
 impl Solution {
     pub fn str_str(haystack: String, needle: String) -> i32 {

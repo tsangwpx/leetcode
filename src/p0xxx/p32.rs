@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 32
 impl Solution {
     pub fn longest_valid_parentheses(s: String) -> i32 {
@@ -40,7 +32,6 @@ impl Solution {
 }
 
 mod B {
-    struct Solution {}
 
     // Problem 32
     impl Solution {

@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 impl Solution {
     // Problem 69
     pub fn my_sqrt(x: i32) -> i32 {

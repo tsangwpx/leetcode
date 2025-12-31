@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 1840
 impl Solution {
     pub fn max_building(n: i32, restrictions: Vec<Vec<i32>>) -> i32 {

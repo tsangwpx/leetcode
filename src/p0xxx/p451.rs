@@ -1,11 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-extern crate rand;
-
 // Problem 451
 impl Solution {
     pub fn frequency_sort(string: String) -> String {

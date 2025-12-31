@@ -1,12 +1,4 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
 fn main() {}
-
-struct Solution {}
-
-extern crate rand;
 
 // Problem 140
 use std::cell::RefCell;

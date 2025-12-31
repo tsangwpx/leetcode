@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 1992
 impl Solution {
     pub fn find_farmland(land: Vec<Vec<i32>>) -> Vec<Vec<i32>> {

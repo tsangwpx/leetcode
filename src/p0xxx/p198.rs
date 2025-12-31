@@ -1,9 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 198
 impl Solution {
     pub fn rob(nums: Vec<i32>) -> i32 {

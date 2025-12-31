@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 44
 impl Solution {
     pub fn is_match(s: String, p: String) -> bool {

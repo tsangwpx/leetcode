@@ -1,6 +1,4 @@
 /// Untested! Not submit yet
-
-
 use std::cmp::max;
 use std::collections::BTreeMap;
 
@@ -15,7 +13,10 @@ pub struct Trie {
 
 impl Trie {
     fn new(value: i32) -> Self {
-        Self { value, children: BTreeMap::new() }
+        Self {
+            value,
+            children: BTreeMap::new(),
+        }
     }
 }
 
@@ -32,16 +33,12 @@ impl Trie {
 
     fn find(&self, key: &[u8]) -> i32 {
         if let Some((&ch, tail)) = key.split_first() {
-            self.children
-                .get(&ch)
-                .map(|s| s.find(tail))
-                .unwrap_or(-1)
+            self.children.get(&ch).map(|s| s.find(tail)).unwrap_or(-1)
         } else {
             self.value
         }
     }
 }
-
 
 impl WordFilter {
     pub fn new(words: Vec<String>) -> Self {
@@ -66,7 +63,6 @@ impl WordFilter {
 
         Self { root }
     }
-
 
     pub fn f(&self, prefix: String, suffix: String) -> i32 {
         let mut key = suffix.into_bytes();

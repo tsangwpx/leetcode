@@ -97,10 +97,8 @@ impl Solution {
             modified += 1;
         }
 
-        modified < 2   // total edits must be less than 2
+        modified < 2 // total edits must be less than 2
     }
 }
-
-struct Solution {}
 
 fn main() {}

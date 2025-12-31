@@ -1,19 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
-
 // Problem 2503
 impl Solution {
     pub fn max_points(grid: Vec<Vec<i32>>, queries: Vec<i32>) -> Vec<i32> {
@@ -94,11 +78,7 @@ impl Solution {
                 // if pos = len, level is overpowered, pick last score
                 // otherwise, pick the score at (pos - 1)
 
-                if pos > 0 {
-                    scores[pos - 1].1
-                } else {
-                    0
-                }
+                if pos > 0 { scores[pos - 1].1 } else { 0 }
             })
             .collect::<Vec<_>>()
     }

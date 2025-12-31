@@ -4,7 +4,9 @@ impl Solution {
     pub fn makesquare(mut matchsticks: Vec<i32>) -> bool {
         use std::collections::HashMap;
 
-        let total = matchsticks.iter().fold(0i64, |accum, &num| accum + i64::from(num));
+        let total = matchsticks
+            .iter()
+            .fold(0i64, |accum, &num| accum + i64::from(num));
         if matchsticks.len() < 4 || total < 4 || total % 4 != 0 {
             return false;
         }
@@ -43,13 +45,20 @@ impl Solution {
                     continue;
                 }
 
-
                 let side_new = side + i64::from(matchsticks[i]);
                 if side_new > perimeter {
                     continue;
                 }
 
-                if recurse(matchsticks, perimeter, memo, visited | flag, done, i + 1, side_new) {
+                if recurse(
+                    matchsticks,
+                    perimeter,
+                    memo,
+                    visited | flag,
+                    done,
+                    i + 1,
+                    side_new,
+                ) {
                     res = true;
                     break;
                 }
@@ -62,9 +71,6 @@ impl Solution {
         recurse(&matchsticks, perimeter, &mut memo, 0, 0, 0, 0)
     }
 }
-
-
-struct Solution {}
 
 fn main() {
     println!("Hello World");

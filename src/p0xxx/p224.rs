@@ -1,19 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
-
 // Problem 224
 impl Solution {
     pub fn calculate(s: String) -> i32 {
@@ -68,7 +52,7 @@ impl Solution {
                     result += stack.pop().unwrap(); // prev result
 
                     number = 0; // reset number
-                                // sign is later given by the input "+" or "-"
+                    // sign is later given by the input "+" or "-"
                 }
                 _ => {
                     // ignore

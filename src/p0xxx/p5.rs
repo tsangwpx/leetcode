@@ -5,12 +5,10 @@ use std::io::Read;
 use std::ops::Range;
 use std::str::from_utf8;
 
-struct Solution {}
-
 impl Solution {
     pub fn longest_palindrome(mut s: String) -> String {
-        use std::str::from_utf8;
         use std::collections::VecDeque;
+        use std::str::from_utf8;
 
         const LENGTH_MAX: usize = 1001;
         let bytes = s.as_bytes();
@@ -24,7 +22,10 @@ impl Solution {
         while pos < bytes.len() {
             let mut odd_radius = odd_radii[pos] as usize;
 
-            while pos >= odd_radius && pos + odd_radius < bytes.len() && bytes[pos - odd_radius] == bytes[pos + odd_radius] {
+            while pos >= odd_radius
+                && pos + odd_radius < bytes.len()
+                && bytes[pos - odd_radius] == bytes[pos + odd_radius]
+            {
                 odd_radius += 1;
             }
 
@@ -34,7 +35,10 @@ impl Solution {
             }
 
             let mut evn_radius = evn_radii[pos] as usize;
-            while pos >= evn_radius + 1 && pos + evn_radius < bytes.len() && bytes[pos - evn_radius - 1] == bytes[pos + evn_radius] {
+            while pos >= evn_radius + 1
+                && pos + evn_radius < bytes.len()
+                && bytes[pos - evn_radius - 1] == bytes[pos + evn_radius]
+            {
                 evn_radius += 1;
             }
             evn_radii[pos] = evn_radius as u16;
@@ -59,8 +63,8 @@ impl Solution {
         panic!("I am lazy");
     }
     pub fn longest_palindrome2(mut s: String) -> String {
-        use std::str::from_utf8;
         use std::collections::VecDeque;
+        use std::str::from_utf8;
         let bytes = s.as_bytes();
         let mut longest_range = 0..1;
         let mut stack = VecDeque::<usize>::with_capacity(1001);

@@ -1,11 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-extern crate rand;
-
 // Problem 1002
 impl Solution {
     pub fn common_chars(words: Vec<String>) -> Vec<String> {

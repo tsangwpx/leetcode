@@ -1,20 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-use rand::distributions::uniform::UniformSampler;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
-
 // Problem 2336
 
 struct SmallestInfiniteSet {

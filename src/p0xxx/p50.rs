@@ -1,12 +1,4 @@
-// mod done;
-
 use std::ops::BitAnd;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
 
 impl Solution {
     // Problem 50
@@ -36,10 +28,6 @@ impl Solution {
 
         r = r.copysign(sign);
 
-        if reciprocal {
-            r.recip()
-        } else {
-            r
-        }
+        if reciprocal { r.recip() } else { r }
     }
 }

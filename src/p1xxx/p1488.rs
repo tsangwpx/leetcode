@@ -1,21 +1,11 @@
-mod leetcode_prelude;
-
 use std::vec;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
 
 // Problem 1488
 impl Solution {
     pub fn avoid_flood(rains: Vec<i32>) -> Vec<i32> {
-        use std::collections::hash_map::Entry::{Occupied, Vacant};
         use std::collections::BTreeSet;
         use std::collections::HashMap;
+        use std::collections::hash_map::Entry::{Occupied, Vacant};
 
         let mut dries = BTreeSet::new();
         let mut full = HashMap::<i32, usize>::new();

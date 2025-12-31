@@ -23,10 +23,8 @@ impl Solution {
 
         let mut res = 0;
 
-
         // the start column, j0, inclusive
         for i0 in 0..=n {
-
             // the ending column, j1, inclusive
             for i1 in i0 + 1..=n {
                 // Reset the counter
@@ -38,14 +36,15 @@ impl Solution {
                     partial += prefix_sums[j][i1] - prefix_sums[j][i0];
 
                     let complement = partial - target;
-                    println!("i=[{},{}] j={}: {} {} / {:?}", i0, i1, j, partial, complement, counter);
+                    println!(
+                        "i=[{},{}] j={}: {} {} / {:?}",
+                        i0, i1, j, partial, complement, counter
+                    );
                     if let Some(s) = counter.get(&complement) {
                         res += s;
                     }
 
-                    counter.entry(partial)
-                        .and_modify(|s| *s += 1)
-                        .or_insert(1);
+                    counter.entry(partial).and_modify(|s| *s += 1).or_insert(1);
                 }
             }
         }
@@ -54,16 +53,8 @@ impl Solution {
     }
 }
 
-struct Solution {}
-
 fn main() {
-    Solution::num_submatrix_sum_target(
-        vec![vec![0, 1, 0], vec![1, 1, 1], vec![0, 1, 0]],
-        0,
-    );
-    Solution::num_submatrix_sum_target(
-        vec![vec![1, -1], vec![-1, 1]],
-        0,
-    );
+    Solution::num_submatrix_sum_target(vec![vec![0, 1, 0], vec![1, 1, 1], vec![0, 1, 0]], 0);
+    Solution::num_submatrix_sum_target(vec![vec![1, -1], vec![-1, 1]], 0);
     println!("Hello World");
 }

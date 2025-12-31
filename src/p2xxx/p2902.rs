@@ -1,21 +1,3 @@
-mod leetcode_prelude;
-
-use std::ops::{Add, Sub};
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
-
 // Problem 2902
 impl Solution {
     pub fn count_sub_multisets(nums: Vec<i32>, l: i32, r: i32) -> i32 {

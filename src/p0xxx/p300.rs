@@ -1,9 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 /// Problem 300
 impl Solution {
     pub fn length_of_lis(nums: Vec<i32>) -> i32 {

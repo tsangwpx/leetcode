@@ -1,13 +1,3 @@
-// mod done;
-
-use std::f32::consts::LN_10;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 42
 impl Solution {
     pub fn trap(height: Vec<i32>) -> i32 {

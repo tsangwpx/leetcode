@@ -1,11 +1,3 @@
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
@@ -19,8 +11,6 @@ impl ListNode {
         ListNode { next: None, val }
     }
 }
-
-struct Solution {}
 
 // Problem 2968
 impl Solution {

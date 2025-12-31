@@ -1,9 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 /// Interesting solutions:
 /// https://leetcode.com/problems/perfect-squares/submissions/1119137709/
 /// Lagrange's Four Square Theorem, Three Square Theorem

@@ -1,20 +1,4 @@
-mod leetcode_prelude;
-
 use std::str::pattern::Pattern;
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
-extern crate rand;
 
 // Problem 229
 impl Solution {

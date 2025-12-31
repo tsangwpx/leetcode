@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 84
 impl Solution {
     pub fn largest_rectangle_area(heights: Vec<i32>) -> i32 {

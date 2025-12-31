@@ -1,6 +1,4 @@
-use std::process::id;
-
-struct Solution {}
+extern crate rand;
 
 #[derive(Debug)]
 struct Debugging {
@@ -18,11 +16,9 @@ struct Debugging {
 // aaaaaaaaaaaaaaa
 // cccccc
 
-
 // "aaaabbbbccccddeeddeeddeedd"
 // "aaaabbbbccccddeeddee"
 // "aabbccddeeddeeddeedd"
-
 
 // "aaaaAAAAAA000000123456"
 // "aazaAAzAA00z00123456"
@@ -51,7 +47,6 @@ struct Debugging {
 // Debugging { pos: 22, taken: 20, need_delete: 0, del_count: 2, rep_count: 4, no_lower: false, no_upper: false, no_digit: false }
 //
 
-
 impl Solution {
     pub fn strong_password_checker3(password: String) -> i32 {
         use std::cmp::{max, min};
@@ -64,10 +59,8 @@ impl Solution {
         let mut last = 0;
         let mut pos = 0;
         macro_rules! println {
-            ($($rest:tt)*) => {
-            }
+            ($($rest:tt)*) => {};
         }
-
 
         // Records the number of repetition groups of the form:
         // `2 + 3m`, `2 + 3p + 1`, and `2 + 3q + 2`
@@ -103,7 +96,13 @@ impl Solution {
         }
 
         let missing = 3 - has_upper as i32 - has_lower as i32 - has_digit as i32;
-        println!("group={:?}; missing={}, need_delete={}, size={}", groups, missing, need_delete, bytes.len());
+        println!(
+            "group={:?}; missing={}, need_delete={}, size={}",
+            groups,
+            missing,
+            need_delete,
+            bytes.len()
+        );
         if bytes.len() < 6 {
             let need_insert = 6 - bytes.len();
             return max(missing, need_insert as i32);
@@ -121,7 +120,10 @@ impl Solution {
             need_delete -= deletions;
             del_count += deletions;
         }
-        println!("group={:?}; need_delete={}: {} {}", groups, need_delete, del_count, rep_count);
+        println!(
+            "group={:?}; need_delete={}: {} {}",
+            groups, need_delete, del_count, rep_count
+        );
 
         if need_delete >= 3 {
             // and delete 3m groups finally
@@ -133,7 +135,10 @@ impl Solution {
             need_delete -= deletions;
             del_count += deletions;
         }
-        println!("group={:?}; need_delete={}: {} {}", groups, need_delete, del_count, rep_count);
+        println!(
+            "group={:?}; need_delete={}: {} {}",
+            groups, need_delete, del_count, rep_count
+        );
 
         // If need_delete = 0, the length is correct
         // If need_delete != 0, do some random deletion
@@ -148,7 +153,6 @@ impl Solution {
 
         max(missing, rep_count as i32) + del_count as i32
     }
-
 
     pub fn strong_password_checker(password: String) -> i32 {
         use std::cmp::{max, min};
@@ -169,8 +173,17 @@ impl Solution {
 
         macro_rules! debugging {
             () => {
-                Debugging {pos, taken, need_delete, del_count, rep_count, no_lower, no_upper, no_digit, }
-            }
+                Debugging {
+                    pos,
+                    taken,
+                    need_delete,
+                    del_count,
+                    rep_count,
+                    no_lower,
+                    no_upper,
+                    no_digit,
+                }
+            };
         }
         // macro_rules! println {
         //     ($($rest:tt)*) => {
@@ -273,7 +286,6 @@ impl Solution {
                 }
             }
 
-
             /*
              * D prefer deletion than replacement
              * R is replacement
@@ -338,7 +350,6 @@ impl Solution {
         }
     }
 
-
     pub fn strong_password_checker2(password: String) -> i32 {
         use std::cmp::max;
         let bytes = password.as_bytes();
@@ -346,7 +357,7 @@ impl Solution {
         let mut has_upper = false;
         let mut has_digit = false;
 
-        let mut rep_count = 0;  // replacement count (every 3 characters, aaaaaaaaaa => aaXaaXaaXa)
+        let mut rep_count = 0; // replacement count (every 3 characters, aaaaaaaaaa => aaXaaXaaXa)
         let mut last = 0u8;
         let mut repeated = 1;
         let mut absent = [true; 256];
@@ -391,7 +402,6 @@ impl Solution {
         }
 
         // need at least `bytes.len() - 20` deletions and `missing` replacements
-
 
         ops
     }

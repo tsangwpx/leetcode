@@ -1,11 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-extern crate rand;
-
 // Problem 368
 impl Solution {
     pub fn largest_divisible_subset(mut nums: Vec<i32>) -> Vec<i32> {

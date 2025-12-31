@@ -13,7 +13,11 @@ impl UniqueWord {
         vec.reverse();
         // SAFETY: Only ASCII characters in word
         let reversed = unsafe { String::from_utf8_unchecked(vec) };
-        Self { word, reversed, index }
+        Self {
+            word,
+            reversed,
+            index,
+        }
     }
 
     fn key(wi: &Self) -> &String {
@@ -25,7 +29,6 @@ impl UniqueWord {
     }
 }
 
-
 struct WordFilter {
     // Unique words
     unique_words: Vec<UniqueWord>,
@@ -34,7 +37,6 @@ struct WordFilter {
     // Index of unique words sorted by `UniqueWord.reversed`
     suffix_indices: Vec<usize>,
 }
-
 
 impl WordFilter {
     fn new(words: Vec<String>) -> Self {
@@ -63,7 +65,11 @@ impl WordFilter {
         // println!("prefix: {:?}", prefix_indices);
         // println!("suffix: {:?}", suffix_indices);
 
-        Self { unique_words, prefix_indices, suffix_indices }
+        Self {
+            unique_words,
+            prefix_indices,
+            suffix_indices,
+        }
     }
 
     fn prefix_range(&self, needle: &String) -> std::ops::Range<usize> {
@@ -75,15 +81,12 @@ impl WordFilter {
     }
 
     /// Return a range of an index table where the key of the corresponding UniqueWord entry starting with needle.
-    fn search_range<F>(
-        &self,
-        table: &Vec<usize>,
-        key: F,
-        needle: &String,
-    ) -> std::ops::Range<usize> where
-        F: for<'a> Fn(&'a UniqueWord) -> &'a String {
+    fn search_range<F>(&self, table: &Vec<usize>, key: F, needle: &String) -> std::ops::Range<usize>
+    where
+        F: for<'a> Fn(&'a UniqueWord) -> &'a String,
+    {
         assert_eq!(self.unique_words.len(), table.len());
-        use std::cmp::{max, min, Ordering};
+        use std::cmp::{Ordering, max, min};
 
         let start = table
             .binary_search_by(|&s| key(&self.unique_words[s]).cmp(needle))
@@ -103,8 +106,8 @@ impl WordFilter {
 
     pub fn f(&self, prefix: String, suffix: String) -> i32 {
         // println!("Search {:?} {:?}", prefix, suffix);
-        use std::collections::HashSet;
         use std::cmp::{max, min};
+        use std::collections::HashSet;
 
         let prefix_range = self.prefix_range(&prefix);
         // println!("Prefix range {:?}", prefix_range);
@@ -123,9 +126,24 @@ impl WordFilter {
         }
 
         // build the candidate set with smaller range
-        type Spec<'a> = (&'a Vec<usize>, &'a std::ops::Range<usize>, &'a String, for<'r> fn(&'r UniqueWord) -> &'r String);
-        let mut can_spec: Spec = (&self.prefix_indices, &prefix_range, &prefix, UniqueWord::key);
-        let mut fin_spec: Spec = (&self.suffix_indices, &suffix_range, &suffix, UniqueWord::reversed_key);
+        type Spec<'a> = (
+            &'a Vec<usize>,
+            &'a std::ops::Range<usize>,
+            &'a String,
+            for<'r> fn(&'r UniqueWord) -> &'r String,
+        );
+        let mut can_spec: Spec = (
+            &self.prefix_indices,
+            &prefix_range,
+            &prefix,
+            UniqueWord::key,
+        );
+        let mut fin_spec: Spec = (
+            &self.suffix_indices,
+            &suffix_range,
+            &suffix,
+            UniqueWord::reversed_key,
+        );
 
         if prefix_range.len() > suffix_range.len() {
             std::mem::swap(&mut can_spec, &mut fin_spec);

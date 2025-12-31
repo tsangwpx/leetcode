@@ -31,18 +31,11 @@ impl Solution {
             // println!("dp {}: {:?}", i, dp[i]);
         }
 
-
         dp[n as usize][k as usize]
     }
 }
 
-struct Solution {}
-
 fn main() {
-    Solution::min_sum_square_diff(
-        vec![1, 2, 3, 4],
-        vec![2, 10, 20, 19],
-        0, 0,
-    );
+    Solution::min_sum_square_diff(vec![1, 2, 3, 4], vec![2, 10, 20, 19], 0, 0);
     println!("Hello World");
 }

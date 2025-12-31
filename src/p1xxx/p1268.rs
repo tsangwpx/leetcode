@@ -1,4 +1,4 @@
-use std::cmp::{min, Ordering, Reverse};
+use std::cmp::{Ordering, Reverse, min};
 use std::collections::BinaryHeap;
 use std::process::id;
 
@@ -16,19 +16,21 @@ impl Solution {
         let mut right = products.len();
 
         for (idx, &ch) in search_word.as_bytes().iter().enumerate() {
-            left = left + products[left..right].binary_search_by(|s| {
-                match s.as_bytes().get(idx) {
-                    Some(&ch2) => ch2.cmp(&ch).then(Ordering::Greater),
-                    None => Ordering::Less,
-                }
-            }).unwrap_or_else(|s| s);
+            left = left
+                + products[left..right]
+                    .binary_search_by(|s| match s.as_bytes().get(idx) {
+                        Some(&ch2) => ch2.cmp(&ch).then(Ordering::Greater),
+                        None => Ordering::Less,
+                    })
+                    .unwrap_or_else(|s| s);
             assert!(left <= products.len());
-            right = left + products[left..right].binary_search_by(|s| {
-                match s.as_bytes().get(idx) {
-                    Some(&ch2) => ch2.cmp(&ch).then(Ordering::Less),
-                    None => Ordering::Less,
-                }
-            }).unwrap_or_else(|s| s);
+            right = left
+                + products[left..right]
+                    .binary_search_by(|s| match s.as_bytes().get(idx) {
+                        Some(&ch2) => ch2.cmp(&ch).then(Ordering::Less),
+                        None => Ordering::Less,
+                    })
+                    .unwrap_or_else(|s| s);
             assert!(right <= products.len());
 
             result[idx].extend_from_slice(&products[left..min(left + 3, right)]);
@@ -68,7 +70,5 @@ impl Solution {
         result
     }
 }
-
-struct Solution {}
 
 fn main() {}

@@ -1,20 +1,6 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
+// Problem 380
 extern crate rand;
 
-// Problem 380
 use rand::seq::SliceRandom;
 use rand::thread_rng;
 use std::collections::HashMap;

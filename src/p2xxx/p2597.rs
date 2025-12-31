@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 2597
 impl Solution {
     pub fn beautiful_subsets(nums: Vec<i32>, k: i32) -> i32 {

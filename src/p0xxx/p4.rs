@@ -1,6 +1,6 @@
 impl Solution {
     pub fn find_median_sorted_arrays(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
-        use ::std::cmp::{min, max, Ordering};
+        use ::std::cmp::{Ordering, max, min};
 
         let total = nums1.len() + nums2.len();
         let even = total % 2 == 0;
@@ -103,7 +103,7 @@ impl Solution {
     }
 
     pub fn find_median_sorted_arrays3(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
-        use ::std::cmp::{min, max, Ordering};
+        use ::std::cmp::{Ordering, max, min};
 
         let total = nums1.len() + nums2.len();
         let even = total % 2 == 0;
@@ -142,14 +142,19 @@ impl Solution {
         macro_rules! get_unchecked {
             ($vec:expr, $index:expr) => {
                 *unsafe { $vec.get_unchecked($index) }
-            }
+            };
         }
 
         #[inline(always)]
         fn update(
-            small: &Vec<i32>, sa: &mut usize, sb: &mut usize,
-            large: &Vec<i32>, la: &mut usize, lb: &mut usize,
-            rem_left: &mut usize, rem_right: &mut usize,
+            small: &Vec<i32>,
+            sa: &mut usize,
+            sb: &mut usize,
+            large: &Vec<i32>,
+            la: &mut usize,
+            lb: &mut usize,
+            rem_left: &mut usize,
+            rem_right: &mut usize,
         ) {
             // small:   [sa, sm]        (sm, sb)
             //          ^ small_left    ^ small_right
@@ -159,13 +164,20 @@ impl Solution {
             let lm = (*la + *lb) / 2;
 
             let mut small_left = min(sm + 1 - *sa, rem_left.saturating_sub(lm - *la));
-            if small_left < *rem_left && *sa + small_left <= sm && get_unchecked!(small, *sa+small_left) <= get_unchecked!(large, *la) {
+            if small_left < *rem_left
+                && *sa + small_left <= sm
+                && get_unchecked!(small, *sa + small_left) <= get_unchecked!(large, *la)
+            {
                 small_left += 1;
             }
             *rem_left -= small_left;
             *sa += small_left;
 
-            if small_left == 0 && *rem_left > 0 && *la < lm && get_unchecked!(large, *la) <= get_unchecked!(small, sm) {
+            if small_left == 0
+                && *rem_left > 0
+                && *la < lm
+                && get_unchecked!(large, *la) <= get_unchecked!(small, sm)
+            {
                 *rem_left -= 1;
                 *la += 1;
             }
@@ -180,7 +192,11 @@ impl Solution {
             *rem_right -= large_right;
             *lb -= large_right;
 
-            if large_right == 0 && *rem_right > 0 && sm + 1 < *sb && get_unchecked!(small, *sb - 1) >= get_unchecked!(large, sm) {
+            if large_right == 0
+                && *rem_right > 0
+                && sm + 1 < *sb
+                && get_unchecked!(small, *sb - 1) >= get_unchecked!(large, sm)
+            {
                 *rem_right -= 1;
                 *sb -= 1;
             }
@@ -195,19 +211,42 @@ impl Solution {
             let v1 = nums1[m1];
             let v2 = nums2[m2];
 
-            println!("cmp {:?} nums1={} {} {} {} nums2={} {} {} {} rem={} {}", v1.cmp(&v2), a1, b1, m1, v1, a2, b2, m2, v2, rem_left, rem_right);
+            println!(
+                "cmp {:?} nums1={} {} {} {} nums2={} {} {} {} rem={} {}",
+                v1.cmp(&v2),
+                a1,
+                b1,
+                m1,
+                v1,
+                a2,
+                b2,
+                m2,
+                v2,
+                rem_left,
+                rem_right
+            );
 
             if v1 <= v2 {
                 update(
-                    &nums1, &mut a1, &mut b1,
-                    &nums2, &mut a2, &mut b2,
-                    &mut rem_left, &mut rem_right,
+                    &nums1,
+                    &mut a1,
+                    &mut b1,
+                    &nums2,
+                    &mut a2,
+                    &mut b2,
+                    &mut rem_left,
+                    &mut rem_right,
                 );
             } else {
                 update(
-                    &nums2, &mut a2, &mut b2,
-                    &nums1, &mut a1, &mut b1,
-                    &mut rem_left, &mut rem_right,
+                    &nums2,
+                    &mut a2,
+                    &mut b2,
+                    &nums1,
+                    &mut a1,
+                    &mut b1,
+                    &mut rem_left,
+                    &mut rem_right,
                 );
             }
         }
@@ -232,9 +271,7 @@ impl Solution {
         // println!("rem: {} {} even {}", rem_left, rem_right, even);
         // assert!((even && (b1 - a1 + b2 - a2) == 2) || (!even && (b1 - a1 + b2 - a2) == 1));
 
-
         let mut median: f64 = 0.0;
-
 
         while a1 < b1 {
             median += f64::from(nums1[a1]);
@@ -250,7 +287,7 @@ impl Solution {
     }
 
     pub fn find_median_sorted_arrays2(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
-        use ::std::cmp::{min, max, Ordering};
+        use ::std::cmp::{Ordering, max, min};
 
         let total = nums1.len() + nums2.len();
         let even = total % 2 == 0;
@@ -266,7 +303,14 @@ impl Solution {
         let mut b2 = nums2.len();
 
         #[inline(always)]
-        fn seq_bounds(rem_left: usize, rem_right: usize, sa: usize, sb: usize, la: usize, lb: usize) -> (usize, usize, usize, usize) {
+        fn seq_bounds(
+            rem_left: usize,
+            rem_right: usize,
+            sa: usize,
+            sb: usize,
+            la: usize,
+            lb: usize,
+        ) -> (usize, usize, usize, usize) {
             // Small:   [start, mid] (mid, stop)
             //              ^ go left   ^ su
             // Large:   [start, mid) [mid, stop)
@@ -306,7 +350,8 @@ impl Solution {
 
             if cmp.is_ge() {
                 // v1 >= v2
-                let (mut sa, sa_stop, mut lb, lb_stop) = seq_bounds(rem_left, rem_right, a2, b2, a1, b1);
+                let (mut sa, sa_stop, mut lb, lb_stop) =
+                    seq_bounds(rem_left, rem_right, a2, b2, a1, b1);
                 // println!("ge sa={} {}; lb={} {}", sa, sa_stop, lb, lb_stop);
                 while sa < sa_stop && nums2[sa] <= nums1[a1] {
                     sa += 1;
@@ -332,7 +377,8 @@ impl Solution {
 
             if cmp.is_lt() || eq {
                 // v1 <= v2
-                let (mut sa, sa_stop, mut lb, lb_stop) = seq_bounds(rem_left, rem_right, a1, b1, a2, b2);
+                let (mut sa, sa_stop, mut lb, lb_stop) =
+                    seq_bounds(rem_left, rem_right, a1, b1, a2, b2);
                 // println!("le sa={} {}; lb={} {}", sa, sa_stop, lb, lb_stop);
                 while sa < sa_stop && nums1[sa] <= nums2[a2] {
                     sa += 1;
@@ -375,9 +421,7 @@ impl Solution {
         // println!("rem: {} {} even {}", rem_left, rem_right, even);
         // assert!((even && (b1 - a1 + b2 - a2) == 2) || (!even && (b1 - a2 + b2 - a2) == 1));
 
-
         let mut median: f64 = 0.0;
-
 
         while a1 < b1 {
             median += f64::from(nums1[a1]);
@@ -392,8 +436,6 @@ impl Solution {
         if even { median / 2.0 } else { median }
     }
 }
-
-struct Solution {}
 
 fn main() {
     println!("Hello World");

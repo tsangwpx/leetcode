@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 33
 impl Solution {
     pub fn search(nums: Vec<i32>, target: i32) -> i32 {

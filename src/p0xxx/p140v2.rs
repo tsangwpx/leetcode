@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 140
 impl Solution {
     pub fn word_break(s: String, word_dict: Vec<String>) -> Vec<String> {

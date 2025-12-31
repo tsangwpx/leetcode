@@ -1,11 +1,5 @@
 use std::iter;
 
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 impl Solution {
     pub fn max_area(height: Vec<i32>) -> i32 {
         assert!(height.len() >= 2);

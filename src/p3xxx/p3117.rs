@@ -1,13 +1,3 @@
-mod leetcode_prelude;
-
-use leetcode_prelude::*;
-
-pub fn main() {}
-
-// hello world !!!!
-
-extern crate rand;
-
 // Problem 3117
 impl Solution {
     pub fn minimum_value_sum2(nums: Vec<i32>, and_values: Vec<i32>) -> i32 {

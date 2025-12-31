@@ -1,9 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 1582
 impl Solution {
     pub fn num_special(mat: Vec<Vec<i32>>) -> i32 {

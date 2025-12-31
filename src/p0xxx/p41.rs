@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 41
 impl Solution {
     pub fn first_missing_positive(nums: Vec<i32>) -> i32 {
@@ -14,7 +6,6 @@ impl Solution {
         let limit = nums.len() as i32; // inclusive
 
         let mut idx = 0;
-
 
         // re-arrange values according to its value
         // put N to (N-1)th index if possible

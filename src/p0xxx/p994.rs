@@ -1,13 +1,3 @@
-fn main() {
-    println!("123456");
-
-    use std::hint::black_box;
-
-    println!("456789");
-}
-
-struct Solution {}
-
 // Problem 994
 impl Solution {
     pub fn oranges_rotting(mut grid: Vec<Vec<i32>>) -> i32 {

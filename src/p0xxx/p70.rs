@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 70
 impl Solution {
     pub fn climb_stairs(n: i32) -> i32 {

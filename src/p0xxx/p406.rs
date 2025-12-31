@@ -28,8 +28,6 @@ impl Solution {
     }
 }
 
-struct Solution {}
-
 fn main() {
     println!("Hello World");
 }

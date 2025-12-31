@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 1287
 impl Solution {
     pub fn find_special_integer(arr: Vec<i32>) -> i32 {

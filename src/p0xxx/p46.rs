@@ -1,11 +1,3 @@
-// mod done;
-
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 46
 impl Solution {
     pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {

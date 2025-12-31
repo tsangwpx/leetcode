@@ -1,9 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
-
 // Problem 1464
 impl Solution {
     pub fn max_product(nums: Vec<i32>) -> i32 {
